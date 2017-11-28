@@ -110,22 +110,26 @@ public class Street {
     // simulate freeway traffic and output to console - continuous mode
     public void simulateTraffic (double randomLimit, long interval) {
 
-        System.out.println (this.toString());
-        while (true) { increaseSimulationStep(randomLimit, interval); }
+        while (true) {
+            System.out.println (this.toString());
+            increaseSimulationStep(randomLimit, interval);
+        }
     }
     
     // simulate freeway traffic and output to console - finite steps mode
     public void simulateTraffic(double randomLimit, long interval, int steps) {
 
-        System.out.println (this.toString());
-        for (int i = 0; i < steps; ++i) { increaseSimulationStep(randomLimit, interval); }
+        for (int i = 0; i < steps; ++i) {
+            System.out.println (this.toString());
+            increaseSimulationStep(randomLimit, interval);
+        }
+        System.out.println("" + steps + " steps completed.");
     
     }
     
     // launch simulation for one step
     private void increaseSimulationStep(double randomLimit, long interval) {
         refreshFreeway(randomLimit);
-        System.out.println(this.toString());
         try {
             Thread.sleep(interval);
         } catch (InterruptedException e) {
