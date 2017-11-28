@@ -1,6 +1,7 @@
 # CellularFreeway
 
-![preview pic](title.png)
+
+![preview pic](preview.png)
 
 
 
