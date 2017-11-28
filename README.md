@@ -11,7 +11,7 @@ This simulation can be run indefinitely or up to a certain amount of steps with 
 
 ## How to launch CellularFreeway
 
-Use the main class to launch the program. The source code itself can also be compiled using the Java 1.8 SDK.
+Use the Main class to launch the program. You need to enter at least four values to successfully start the simulation. The source code itself can also be compiled using the Java 1.8 SDK.
 
 Launching the program in a command-line interface would look like this:
 
