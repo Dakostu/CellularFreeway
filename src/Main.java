@@ -20,7 +20,7 @@
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
 
         if (args.length < 4)
             throw new IllegalArgumentException
@@ -53,11 +53,15 @@ public class Main {
 
         Street freeway = new Street(freewayLength);
         freeway.insertCars(carsAmount);
-        if (args.length == 4)
+        if (args.length == 4) {
             freeway.simulateTraffic(probabilityLimit, intervalms);
-        else
+        } else {
             //5th parameter (optional): number of simulation steps
-            freeway.simulateTraffic(probabilityLimit, intervalms, Integer.parseInt(args[4]));
+            int simSteps = Integer.parseInt(args[4]);
+            if (simSteps < 0)
+                throw new IllegalArgumentException("Simulation step amount needs to be a positive number");
+            freeway.simulateTraffic(probabilityLimit, intervalms, simSteps);
+        }
             
     }
 }
