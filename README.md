@@ -14,4 +14,5 @@ This simulation can be run indefinitely or up to a certain amount of steps with 
 Use the main class to launch the program. The source code itself can also be compiled using the Java 1.8 SDK.
 
 Launching the program in a command-line interface would look like this:
-<code>"./Java main [length of street in cells] [amount of cars on street] [decimal propability number] [time interval between simulation steps] [optional: amount of steps]"</code>
+
+<code>"./Java main [length of street in cells] [amount of cars on street] [decimal probability number] [time interval between simulation steps] [optional: amount of steps]"</code>
