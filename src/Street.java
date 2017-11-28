@@ -13,7 +13,7 @@
 /**
  * The public class Street provides a constructor
  * and every method necessary to fulfill the steps described
- * in Nagel's and Schreckenberg's paper.
+ * in Nagel's and Schreckenberg's abstract.
  *
  * @version 1.00 27 Nov 2017
  * @author Daniel Kostuj
@@ -64,7 +64,7 @@ public class Street {
     }
 
 
-    // refresh car position according to the steps laid down in the paper
+    // refresh car position according to the steps laid down in the abstract
     private void refreshFreeway (double randLimit) {
 
         for (int i = 0; i < freeway.length; ++i) {
