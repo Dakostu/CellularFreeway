@@ -9,9 +9,6 @@
  * This program uses the license found in the LICENSE.md file.
  */
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.security.Key;
 
 /**
  * The public class Street provides a constructor
@@ -56,18 +53,18 @@ public class Street {
         } while (freeway[random].isOccupied);
         freeway[random].isOccupied = true;
         // 'realistic case': velocity is a number between [0,5] (p.2222)
-        freeway[random].slot = "" + (int) (Math.random() * ((5-0) + 1));
+        freeway[random].slot = "" + (int) (Math.random() * (5 + 1));
     }
 
     // insert an amount of cars
-    public void insertCars(int amount) {
+    private void insertCars(int amount) {
         for (int i = 0; i < amount; ++i)
             putCar();
     }
 
 
     // refresh car position according to the steps laid down in the paper
-    public void refreshFreeway (double randLimit) {
+    private void refreshFreeway (double randLimit) {
 
         for (int i = 0; i < freeway.length; ++i) {
             if (freeway[i].isOccupied) {

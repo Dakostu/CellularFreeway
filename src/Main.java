@@ -14,8 +14,8 @@
  * as settings for the freeway traffic simulation
  * that will be launched afterwards.
  *
- * @version 1.00 27 Nov 2017
  * @author Daniel Kostuj
+ * @version 1.00 27 Nov 2017
  */
 
 public class Main {
@@ -48,7 +48,6 @@ public class Main {
             throw new IllegalArgumentException("Random limit needs to be a decimal number between 0 and 1");
         else if (intervalms < 0)
             throw new IllegalArgumentException("Time interval needs to be a positive integer");
-
 
 
         Street freeway = new Street(freewayLength);
