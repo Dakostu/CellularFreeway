@@ -57,7 +57,7 @@ public class Street {
     }
 
     // insert an amount of cars
-    private void insertCars(int amount) {
+    public void insertCars(int amount) {
         for (int i = 0; i < amount; ++i)
             putCar();
     }
