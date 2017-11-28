@@ -11,8 +11,8 @@ This simulation can be run indefinitely or up to a certain amount of steps with 
 
 ## How to launch CellularFreeway
 
-Use the Main class to launch the program. You need to enter at least four values to successfully start the simulation. The source code itself can also be compiled using the Java 1.8 SDK.
+Use the Main class to launch the program. You need to enter at least four numerical values as command line arguments to successfully start the simulation. The source code itself can also be compiled using the Java 1.8 SDK.
 
-Launching the program in a command-line interface would look like this:
+Launching the program in a command-line interface, for example, would look like this:
 
 <code>"./Java main [length of street in cells] [amount of cars on street] [decimal probability number] [time interval between simulation steps] [optional: amount of steps]"</code>
