@@ -37,9 +37,9 @@ public class Main {
         int freewayLength = Integer.parseInt(args[0]);
         //2nd argument: amount of cars on freeway
         int carsAmount = Integer.parseInt(args[1]);
-        //3rd argument: value of random number propability limit
-        //4th argument: time interval in milliseconds
+        //3rd argument: value of random number probability limit
         double probabilityLimit = Double.parseDouble(args[2]);
+        //4th argument: time interval in milliseconds
         long intervalms = Long.parseLong(args[3]);
         
 
