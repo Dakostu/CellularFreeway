@@ -22,11 +22,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length != 4)
+        if (args.length < 4)
             throw new IllegalArgumentException
-                    ("\n\tNeed 4 arguments:\n\tfreeway length (int), " +
-                            "amount of cars (int), random limit number (double)," +
-                            " time interval in milliseconds (long)");
+                    ("\n\tNeed at least 4 arguments:\n\tfreeway length, " +
+                            "amount of cars, random decimal limit number," +
+                            " time interval in milliseconds)," + 
+                            " simulation steps (optional)");
 
 
         //1st parameter: length of freeway (in slots)
@@ -37,12 +38,12 @@ public class Main {
         //4th parameter: time interval in milliseconds
         double probabilityLimit = Double.parseDouble(args[2]);
         long intervalms = Long.parseLong(args[3]);
+        
 
         if (freewayLength < 1)
             throw new IllegalArgumentException("Need a street of length bigger than 0");
         else if (freewayLength < carsAmount || carsAmount < 0)
-            throw new IllegalArgumentException
-                    ("\nAmount of cars has to be a positive number " +
+            System.err.println("\nAmount of cars has to be a positive number " +
                             "that is equal to or less than street length");
         else if (probabilityLimit < 0 || probabilityLimit > 1)
             throw new IllegalArgumentException("Random limit needs to be a decimal number between 0 and 1");
@@ -52,6 +53,11 @@ public class Main {
 
         Street freeway = new Street(freewayLength);
         freeway.insertCars(carsAmount);
-        freeway.simulateTraffic(probabilityLimit, intervalms);
+        if (args.length == 4)
+            freeway.simulateTraffic(probabilityLimit, intervalms);
+        else
+            //5th parameter (optional): number of simulation steps
+            freeway.simulateTraffic(probabilityLimit, intervalms, Integer.parseInt(args[4]));
+            
     }
 }

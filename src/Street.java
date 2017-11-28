@@ -43,6 +43,7 @@ public class Street {
     private void initializeStreet (Street nullStreet[]) {
         for (int i = 0; i < nullStreet.length; ++i)
             nullStreet[i] = new Street();
+
     }
 
     // put a "car" on a random street slot
@@ -88,11 +89,7 @@ public class Street {
                 // Step 3 - randomization
                 if ((Math.random() <= randLimit) && (Integer.valueOf(freeway[i].slot) > 0))
                     freeway[i].slot = "" + (Integer.valueOf(freeway[i].slot)-1);
-
-
-
             }
-
         }
 
         // Step 4 - car motion
@@ -110,21 +107,33 @@ public class Street {
     }
 
 
-    // simulate freeway traffic and output to console
+    // simulate freeway traffic and output to console - continuous mode
     public void simulateTraffic (double randomLimit, long interval) {
 
         System.out.println (this.toString());
-        while (true) {
-            refreshFreeway(randomLimit);
-            System.out.println(this.toString());
-            try {
-                Thread.sleep(interval);
-            } catch (InterruptedException e) {
-                System.out.println("--- PROGRAM WAS INTERRUPTED ---");
-                e.printStackTrace();
-            }
+        while (true) { increaseSimulationStep(randomLimit, interval); }
+    }
+    
+    // simulate freeway traffic and output to console - finite steps mode
+    public void simulateTraffic(double randomLimit, long interval, int steps) {
 
+        System.out.println (this.toString());
+        for (int i = 0; i < steps; ++i) { increaseSimulationStep(randomLimit, interval); }
+    
+    }
+    
+    // launch simulation for one step
+    private void increaseSimulationStep(double randomLimit, long interval) {
+        refreshFreeway(randomLimit);
+        System.out.println(this.toString());
+        try {
+            Thread.sleep(interval);
+        } catch (InterruptedException e) {
+            System.out.println("--- PROGRAM WAS INTERRUPTED ---");
+          e.printStackTrace();
         }
+    
+    
     }
 
     @Override
