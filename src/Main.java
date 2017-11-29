@@ -14,8 +14,8 @@
  * as settings for the freeway traffic simulation
  * that will be launched afterwards.
  *
- * @author Daniel Kostuj
  * @version 1.00 27 Nov 2017
+ * @author Daniel Kostuj
  */
 
 public class Main {
@@ -32,7 +32,6 @@ public class Main {
                     "[amount of cars on street] [decimal probability number] " +
                     "[time interval between simulation steps] [optional: amount of steps]");
 
-
         //1st argument: length of freeway (in slots)
         int freewayLength = Integer.parseInt(args[0]);
         //2nd argument: amount of cars on freeway
@@ -41,7 +40,6 @@ public class Main {
         double probabilityLimit = Double.parseDouble(args[2]);
         //4th argument: time interval in milliseconds
         long intervalms = Long.parseLong(args[3]);
-        
 
         if (freewayLength < 1)
             printErrorExit("Need a street of length bigger than 0");
@@ -53,8 +51,6 @@ public class Main {
         else if (intervalms < 0)
             printErrorExit("Time interval needs to be a positive integer");
 
-
-
         Street freeway = new Street(freewayLength);
         freeway.insertCars(carsAmount);
         if (args.length == 4) {
@@ -62,9 +58,8 @@ public class Main {
         } else {
             //5th argument (optional): number of simulation steps
             int simSteps = Integer.parseInt(args[4]);
-            if (simSteps < 0) {
+            if (simSteps < 0)
                 printErrorExit("Simulation step amount needs to be a positive integer");
-            }
             freeway.simulateTraffic(probabilityLimit, intervalms, simSteps);
         }
             

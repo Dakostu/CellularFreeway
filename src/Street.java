@@ -26,28 +26,27 @@ public class Street {
     private Street[] freeway;
 
     // constructor for one street slot
-    public Street () {
+    public Street() {
         isOccupied = false;
         slot = ".";
     }
 
     // constructor for a street, consisting of street slots
-    public Street (int length) {
+    public Street(int length) {
 
         freeway = new Street[length];
         initializeStreet(freeway);
     }
 
-
     // initialize empty street array
-    private void initializeStreet (Street nullStreet[]) {
+    private void initializeStreet(Street nullStreet[]) {
         for (int i = 0; i < nullStreet.length; ++i)
             nullStreet[i] = new Street();
 
     }
 
     // put a "car" on a random street slot
-    private void putCar () {
+    private void putCar() {
         int random;
         do {
             random = (int) (Math.random() * freeway.length);
@@ -63,9 +62,8 @@ public class Street {
             putCar();
     }
 
-
     // refresh car position according to the steps laid down in the abstract
-    private void refreshFreeway (double randLimit) {
+    private void refreshFreeway(double randLimit) {
 
         for (int i = 0; i < freeway.length; ++i) {
             if (freeway[i].isOccupied) {
@@ -82,7 +80,7 @@ public class Street {
                 // Step 1 - acceleration
                 if (isWayFree && (Integer.valueOf(freeway[i].slot) < 5))
                     freeway[i].slot = "" + ((Integer.valueOf(freeway[i].slot) + 1));
-                    // Step 2 - slowing down (due to other cars)
+                // Step 2 - slowing down (due to other cars)
                 else if (!isWayFree && Integer.valueOf(freeway[i].slot) >= 1)
                     freeway[i].slot = "" + (notFreeNewSpeed - 1);
 
@@ -108,7 +106,7 @@ public class Street {
 
 
     // simulate freeway traffic and output to console - continuous mode
-    public void simulateTraffic (double randomLimit, long interval) {
+    public void simulateTraffic(double randomLimit, long interval) {
 
         while (true) {
             System.out.println (this.toString());
@@ -136,8 +134,7 @@ public class Street {
             System.out.println("--- PROGRAM WAS INTERRUPTED ---");
           e.printStackTrace();
         }
-    
-    
+
     }
 
     @Override
